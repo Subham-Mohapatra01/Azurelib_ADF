@@ -1,0 +1,120 @@
+{
+	"name": "Rest_Pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"description": "",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"paginationRules": {
+							"supportRFC5988": "true"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "REST_DS",
+						"type": "DatasetReference",
+						"parameters": {
+							"CountryName": "France"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "REST_JSON",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Pass Email",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-84.eastus.logic.azure.com:443/workflows/c2dcf6ec1b854ad7a703639353de63aa/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=T0-J8kBnpumeo46d2ieuuoYDZZ4XVBc8n6RSZSQrvpM",
+					"method": "POST",
+					"body": {
+						"sendMailto": "work.subham0@gmail.com",
+						"status": "Pass",
+						"pipelineName": "Rest_Pipeline",
+						"MessageBody": "All good"
+					}
+				}
+			},
+			{
+				"name": "Fail Email",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-84.eastus.logic.azure.com:443/workflows/c2dcf6ec1b854ad7a703639353de63aa/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=T0-J8kBnpumeo46d2ieuuoYDZZ4XVBc8n6RSZSQrvpM",
+					"method": "POST",
+					"body": {
+						"sendMailto": "work.subham0@gmail.com",
+						"status": "Fail",
+						"pipelineName": "Rest_Pipeline",
+						"MessageBody": "Execution Failed"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-08-11T19:49:34Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

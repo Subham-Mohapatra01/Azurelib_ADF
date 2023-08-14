@@ -1,0 +1,9 @@
+{
+	"name": "SubhamazurelibADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5000e1b5-7c1e-4c90-97c5-968817929a7b",
+		"tenantId": "9b695cf0-4779-465c-a037-2bfd8cf7c632"
+	}
+}

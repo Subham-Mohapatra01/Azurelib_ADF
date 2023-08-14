@@ -1,0 +1,19 @@
+{
+	"name": "SQL_LS2",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=subhamserver1.database.windows.net;Initial Catalog=subhamdb1;User ID=subhamdb1",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "key_LS",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "subhamdb1"
+			}
+		}
+	}
+}

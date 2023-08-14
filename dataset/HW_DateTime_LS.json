@@ -1,0 +1,24 @@
+{
+	"name": "HW_DateTime_LS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "HW_date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "HW_DateTime"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

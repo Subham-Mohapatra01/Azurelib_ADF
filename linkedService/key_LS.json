@@ -1,0 +1,11 @@
+{
+	"name": "key_LS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://subhamkeyvalutt.vault.azure.net/"
+		}
+	}
+}

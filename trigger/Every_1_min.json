@@ -1,0 +1,31 @@
+{
+	"name": "Every_1_min",
+	"properties": {
+		"description": "Triggers Pipeline every  1 min",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Get_Metadata_Example",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "Incremental_Example",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2023-08-12T03:50:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+{
+	"name": "Get_Metadata_example4",
+	"properties": {
+		"activities": [
+			{
+				"name": "DB_Data",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "SQL_Generic_DS",
+						"type": "DatasetReference",
+						"parameters": {
+							"Schema_name": "Saleslt",
+							"Table_name": "Customer"
+						}
+					},
+					"fieldList": [
+						"columnCount",
+						"exists",
+						"structure"
+					]
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-07-22T11:45:59Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
