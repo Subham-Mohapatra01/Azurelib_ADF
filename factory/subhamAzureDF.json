@@ -1,0 +1,9 @@
+{
+	"name": "subhamAzureDF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "13dc80c3-0f38-4ea8-8114-4a65fcb2f5f5",
+		"tenantId": "53f22b9a-ef16-4299-96b7-f66172ee97ad"
+	}
+}
