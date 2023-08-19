@@ -1,5 +1,5 @@
 {
-	"name": "SQL_Generic_DS",
+	"name": "sql_generic_ds",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SQL_LS",

@@ -56,7 +56,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SQL_Generic_DS",
+						"referenceName": "sql_generic_ds",
 						"type": "DatasetReference",
 						"parameters": {
 							"Schema_name": "dbo",
