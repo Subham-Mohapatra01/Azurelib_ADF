@@ -1,0 +1,9 @@
+{
+	"name": "SubhamAzureDFUAT",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8d004e8a-30ec-4b88-8b2f-d4a1d684a2ec",
+		"tenantId": "53f22b9a-ef16-4299-96b7-f66172ee97ad"
+	}
+}
